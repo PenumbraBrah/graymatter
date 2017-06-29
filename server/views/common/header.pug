@@ -1,0 +1,19 @@
+
+#header-container
+  nav.nav#header
+    .nav-left
+      block rootNavLeft
+        a.nav-item(href='/')
+          h1
+            i.icon-layers
+            = appconfig.title
+    .nav-center
+      block rootNavCenter
+        search
+    span.nav-toggle
+      span
+      span
+      span
+    .nav-right
+      block rootNavRight
+        loading-spinner

@@ -1,0 +1,61 @@
+extends ../../layout.pug
+
+block rootNavCenter
+  h2.nav-item= t('nav.settings')
+
+block rootNavRight
+  loading-spinner
+  .nav-item
+    a.button.btn-edit-discard(href='/')
+      i.icon-home
+      span= t('nav.root')
+
+block content
+
+  #page-type-account
+    .container.is-fluid
+      .columns.is-gapless
+
+        .column.is-narrow.is-hidden-touch.sidebar
+
+          aside
+            .sidebar-label
+              span= t('sidebar.navigation')
+            ul.sidebar-menu
+              li
+                a(href='/')
+                  i.icon-home
+                  span= t('nav.root')
+
+          aside
+            .sidebar-label
+              span= t('nav.account')
+            ul.sidebar-menu
+              li
+                a(href='/admin/profile')
+                  i.icon-user
+                  span= t('nav.myprofile')
+              li
+                a(href='/admin/stats')
+                  i.icon-bar-graph-2
+                  span= t('nav.stats')
+              if rights.manage
+                li
+                  a(href='/admin/users')
+                    i.icon-users
+                    span= t('nav.users')
+                li
+                  a(href='/admin/settings')
+                    i.icon-cog
+                    span= t('nav.syssettings')
+                //-li
+                  a(href='/admin/theme')
+                    i.icon-drop
+                    span= t('nav.theme')
+              li
+                a(href='/logout')
+                  i.icon-delete2
+                  span= t('nav.logout')
+
+        .column
+          block adminContent
